@@ -87,6 +87,8 @@ public class JenkinsBuild {
                     returnValue.targetDir = args[i];
                     if (!returnValue.targetDir.EndsWith(System.IO.Path.DirectorySeparatorChar + ""))
                         returnValue.targetDir += System.IO.Path.DirectorySeparatorChar;
+
+                    returnValue.targetDir = returnValue.targetDir.Replace("\"", "");
  
                     allArgsFound = true;
                     break;
