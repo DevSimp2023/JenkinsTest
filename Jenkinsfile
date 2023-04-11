@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Get Enviroment') {
       steps {
-        sh 'ls ${UNITY_PATH}'
+        sh 'echo ${UNITY_PATH}'
         sh 'echo ${TARGET}'
       }
     }
