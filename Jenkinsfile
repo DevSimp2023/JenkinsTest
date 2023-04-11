@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Get Git Files') {
-      steps {
-        git(url: 'git@github.com:DevSimp2023/JenkinsTest.git', branch: 'master')
-      }
-    }
-
     stage('Get Enviroment') {
       steps {
         sh 'ls ${UNITY_PATH}'
