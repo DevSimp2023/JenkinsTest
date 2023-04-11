@@ -96,6 +96,8 @@ public class JenkinsBuild {
  
         if (!allArgsFound)
             System.Console.WriteLine("[JenkinsBuild] Incorrect Parameters for -executeMethod Format: -executeMethod JenkinsBuild.BuildWindows64 <app name> <output dir>");
+        
+        System.Console.WriteLine($"[JenkinsBuild] Parameters for -executeMethod <app name>: {returnValue.appName} <output dir>: {returnValue.targetDir}");
  
         return returnValue;
     }
@@ -112,7 +114,7 @@ public class JenkinsBuild {
     // ------------------------------------------------------------------------
     private static void BuildProject(string[] scenes, string targetDir, BuildTargetGroup buildTargetGroup, BuildTarget buildTarget, BuildOptions buildOptions)
     {
-        System.Console.WriteLine("[JenkinsBuild] Building:" + targetDir + " buildTargetGroup:" + buildTargetGroup.ToString() + " buildTarget:" + buildTarget.ToString());
+        System.Console.WriteLine("[JenkinsBuild] Building: " + targetDir + " buildTargetGroup:" + buildTargetGroup.ToString() + " buildTarget:" + buildTarget.ToString());
   
         // https://docs.unity3d.com/ScriptReference/EditorUserBuildSettings.SwitchActiveBuildTarget.html
         var switchResult = EditorUserBuildSettings.SwitchActiveBuildTarget(buildTargetGroup, buildTarget);
