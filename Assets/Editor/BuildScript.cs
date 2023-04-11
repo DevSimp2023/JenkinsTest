@@ -30,7 +30,7 @@ public class JenkinsBuild {
     {
         var args = FindArgs();
  
-        var fullPathAndName = args.targetDir + args.appName;
+        var fullPathAndName = args.targetDir + args.appName + ".exe";
         BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, BuildOptions.None);
     }
     
