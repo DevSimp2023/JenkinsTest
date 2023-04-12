@@ -8,7 +8,7 @@ using UnityEditor.Build.Reporting;
 // ------------------------------------------------------------------------
 // https://docs.unity3d.com/Manual/CommandLineArguments.html
 // ------------------------------------------------------------------------
-public class JenkinsBuild {
+public class JenkinsPipeline {
     private static readonly string[] EnabledScenes = FindEnabledEditorScenes();
   
     // ------------------------------------------------------------------------
