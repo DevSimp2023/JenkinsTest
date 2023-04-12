@@ -2,7 +2,6 @@
 // Assets/Editor/JenkinsBuild.cs
 // -------------------------------------------------------------------------------------------------
 using UnityEditor;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Build.Reporting;
   
@@ -30,7 +29,7 @@ public class JenkinsBuild {
     {
         var args = FindArgs();
  
-        var fullPathAndName = args.targetDir + args.appName + ".exe";
+        var fullPathAndName = args.TargetDir + args.AppName + ".exe";
         BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, BuildOptions.None);
     }
     
@@ -41,7 +40,7 @@ public class JenkinsBuild {
     {
         var args = FindArgs();
  
-        var fullPathAndName = args.targetDir + args.appName + ".apk";
+        var fullPathAndName = args.TargetDir + args.AppName + ".apk";
         BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.Android, BuildTarget.Android, BuildOptions.None);
     }
     
@@ -80,15 +79,15 @@ public class JenkinsBuild {
                 case < 0:
                     continue;
                 case 0:
-                    returnValue.appName = args[i];
+                    returnValue.AppName = args[i];
                     break;
                 case 1:
                 {
-                    returnValue.targetDir = args[i];
-                    if (!returnValue.targetDir.EndsWith(System.IO.Path.DirectorySeparatorChar + ""))
-                        returnValue.targetDir += System.IO.Path.DirectorySeparatorChar;
+                    returnValue.TargetDir = args[i];
+                    if (!returnValue.TargetDir.EndsWith(System.IO.Path.DirectorySeparatorChar + ""))
+                        returnValue.TargetDir += System.IO.Path.DirectorySeparatorChar;
 
-                    returnValue.targetDir = returnValue.targetDir.Replace("\"", "");
+                    returnValue.TargetDir = returnValue.TargetDir.Replace("\"", "");
  
                     allArgsFound = true;
                     break;
@@ -99,7 +98,7 @@ public class JenkinsBuild {
         if (!allArgsFound)
             System.Console.WriteLine("[JenkinsBuild] Incorrect Parameters for -executeMethod Format: -executeMethod JenkinsBuild.BuildWindows64 <app name> <output dir>");
         
-        System.Console.WriteLine($"[JenkinsBuild] Parameters for -executeMethod <app name>: {returnValue.appName} <output dir>: {returnValue.targetDir}");
+        System.Console.WriteLine($"[JenkinsBuild] Parameters for -executeMethod <app name>: {returnValue.AppName} <output dir>: {returnValue.TargetDir}");
  
         return returnValue;
     }
@@ -145,8 +144,8 @@ public class JenkinsBuild {
  
     private class Args
     {
-        public string appName = "AppName";
-        public string targetDir = "~/Desktop";
+        public string AppName = "AppName";
+        public string TargetDir = "~/Desktop";
     }
 }
 
